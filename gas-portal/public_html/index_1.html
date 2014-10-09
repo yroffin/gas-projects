@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+    <head>
+        <meta charset="utf-8">
+        <title>My AngularJS App</title>
+        <link rel="stylesheet" href="css/animations.css">
+        <link rel="stylesheet" href="lib/bootstrap/3.1.0/css/bootstrap.css">
+        <link rel="stylesheet" href="lib/bootstrap/3.1.0/css/bootstrap-theme.css">
+        <link rel="stylesheet" href="css/app.css"/>
+    </head>
+    <body ng-controller="BootstrapCtrl" ng-init="load()">
+        <nav ng-show="template.navbar" ng-controller="MyCtrl1" class="navbar navbar-inverse" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Brand</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="{{template.navbar.items[0].class}}">
+                    <li ng-repeat="item0 in template.navbar.items[0].items" class="{{item0.class}}">
+                        <a href="{{item0.href}}" class="{{item0.aclass}}" data-toggle="{{item0.toggle}}">{{item0.label}}</a>
+                        <ul class="{{item0.block.class}}">
+                            <li ng-repeat="item1 in item0.block.items">
+                                <a href="{{item1.href}}" class="{{item1.class}}">{{item1.label}}</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div ng-view></div>
+
+        <!-- JQuery -->
+        <script src="lib/jquery/jquery-1.10.2.js"></script>
+        <script src="lib/bootstrap/3.1.0/js/bootstrap.js"></script>
+        <!-- AngularJS -->
+        <script src="lib/angular/angular.js"></script>
+        <script src="lib/angular/angular-route.js"></script>
+        <script src="lib/angular/angular-resource.js"></script>
+        <script src="lib/angular/angular-cookies.js"></script>
+        <script src="lib/angular/angular-sanitize.min.js"></script>
+        <!-- Application -->
+        <script src="js/public/app.js"></script>
+        <script src="js/public/services.js"></script>
+        <script src="js/public/controllers.js"></script>
+        <script src="js/public/filters.js"></script>
+        <script src="js/public/directives.js"></script>
+    </body>
+</html>

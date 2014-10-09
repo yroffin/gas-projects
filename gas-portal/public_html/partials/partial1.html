@@ -1,0 +1,26 @@
+Vue 1 (services)
+<table>
+    <tr>
+        <td>
+            <div ng-show="googleDrive" class="css-treeview">
+                <li ng-repeat="level0 in googleDrive.children track by $index"><input type="checkbox" id="item-{{level0.id}}" ng-mouseover="load(level0)" /><label for="item-{{level0.id}}">{{level0.name}} <i ng-mouseover="show(level0)" class="glyphicon glyphicon-hand-right"></i></label>
+                    <ul>
+                        <li ng-repeat="level1 in level0.children track by $index"><input type="checkbox" id="item-{{level1.id}}" ng-mouseover="load(level1)"/><label for="item-{{level1.id}}">{{level1.name}} <i ng-mouseover="show(level1)" class="glyphicon glyphicon-hand-right"></i></label>
+                            <ul>
+                                <li ng-repeat="level2 in level1.children track by $index"><input type="checkbox" id="item-{{level2.id}}" ng-mouseover="load(level2)"/><label for="item-{{level2.id}}">{{level2.name}}</label> <i ng-mouseover="show(level2)" class="glyphicon glyphicon-hand-right"></i></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </div>
+        </td>
+        <td>
+            <table ng-show="googleDriveDetail" class="table table-hover table-condensed">
+                <tbody><tr><th>id</th><th>name</th></tr></tbody>
+                <tr ng-repeat="file in googleDriveDetail.files track by $index">
+                    <td>{{file.id}}</td><td>{{file.name}}</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>

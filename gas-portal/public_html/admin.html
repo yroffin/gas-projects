@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en" ng-app="Admin">
+    <head>
+        <meta charset="utf-8">
+        <title>My AngularJS App</title>
+        <link rel="stylesheet" href="css/app.css"/>
+        <link rel="stylesheet" href="css/styles.css"/>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+        <link rel="stylesheet" href="lib/bootstrap/3.1.0/css/bootstrap.css">
+        <link rel="stylesheet" href="lib/bootstrap/3.1.0/css/bootstrap-theme.css">
+        <link rel="stylesheet" href="css/treeview.css">
+    </head>
+    <body ng-controller="BootstrapCtrl" ng-init="load()">
+        <nav ng-controller="MainCtrl" class="navbar navbar-inverse" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Brand</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="#/menus" class="dropdown-toggle" data-toggle="dropdown">Menus</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="mainView" ng-controller="JsoneditViewCtrl">
+
+        <h2>JSONedit</h2>
+        <h3>The Editor</h3>
+        <json-editor data="jsonData" type="'object'">
+        </json-editor>
+
+        <h3>The JSON</h3>
+        <div>
+            <textarea ng-model="jsonString"></textarea>
+        </div>
+
+        </div>
+        
+        <div ng-view></div>
+
+        <!-- JQuery -->
+        <script src="lib/jquery/jquery-1.10.2.js"></script>
+        <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+        <!-- AngularJS -->
+        <script src="lib/angular/angular.js"></script>
+        <script src="lib/angular/angular-route.js"></script>
+        <script src="lib/angular/angular-resource.js"></script>
+        <script src="lib/angular/angular-cookies.js"></script>
+        <script src="lib/angular/angular-sanitize.min.js"></script>
+        <!-- Bootstrap -->
+        <script src="lib/bootstrap/3.1.0/js/bootstrap.js"></script>
+        <!-- Markdown Editor -->
+        <script src="lib/markdown/markdown.converter.js"></script>
+        <script src="lib/markdown/markdown.editor.js"></script>
+        <script src="lib/markdown/markdown.sanitizer.js"></script>
+        <!-- Application -->
+        <script src="js/admin/app.js"></script>
+        <script src="js/admin/services.js"></script>
+        <script src="js/admin/controllers.js"></script>
+        <script src="js/admin/filters.js"></script>
+        <script src="js/admin/directives.js"></script>
+    </body>
+</html>
