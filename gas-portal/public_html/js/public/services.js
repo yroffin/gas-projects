@@ -1,121 +1,74 @@
+/* 
+ * Copyright 2014 Yannick Roffin.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 'use strict';
 
-/* Services */
-
-angular.module('myApp.services', ['ngResource'],
-        function($provide) {
-            var gasPrivateServices = 'https://script.google.com/macros/s/AKfycbwxNmqEIyrcWGCy_56UOBqHa3t-9_tf4kRbR6cO0OlZFuoJAJY/exec';
-            var gasPublicServices = 'https://script.google.com/macros/s/AKfycbwxNmqEIyrcWGCy_56UOBqHa3t-9_tf4kRbR6cO0OlZFuoJAJY/exec';
-
-            /**
-             * swap provider
-             */
-            console.info('Register google services ' + gasPrivateServices);
-            $provide.factory('GooglePlus', function($resource) {
-                return $resource('', {}, {
-                    auth: {
+var gasPrivateServices = 'https://script.google.com/macros/s/AKfycbw2Q23RjpRHNHYGEcMzWYKhs7LwAHQKYHLzXJhTJRoDsptHNcM/exec';
+var gasPublicServices = 'https://script.google.com/macros/s/AKfycbw2Q23RjpRHNHYGEcMzWYKhs7LwAHQKYHLzXJhTJRoDsptHNcM/exec';
+var module1 = angular.module('myApp.services', ['ngResource']);
+        
+module1.factory('gasPrivateServices', ['$resource', function ($resource) {
+    var Todo = $resource('', {}, {
+                   getInfo: {
                         method: 'JSONP',
-                        url: 'https://accounts.google.com/o/oauth2/auth',
-                        params : {
+                        url: gasPublicServices,
+                        params: {
                             callback:'JSON_CALLBACK',
-                            scope:'https://www.googleapis.com/auth/plus.login',
-                            request_visible_actions:'http://schemas.google.com/AddActivity',
-                            cookie_policy:'single_host_origin',
-                            immediate:'true',
-                            response_type:'code token id_token gsession',
-                            authuser:0,
-                            redirect_uri: 'postmessage',
-                            include_granted_scopes:'true'
-                        },
-                        isArray: false,
-                        cache: false
-                    },
-                    revoke: {
-                        method: 'JSONP',
-                        url: 'https://accounts.google.com/o/oauth2/revoke',
-                        params : {
-                            callback:'JSON_CALLBACK'
-                        },
-                        isArray: false,
-                        cache: false
-                    },
-                    logout: {
-                        method: 'JSONP',
-                        url: 'https://accounts.google.com/Logout',
-                        params : {
-                            callback:'JSON_CALLBACK'
+                            operation: 'getInfo'
                         },
                         isArray: false,
                         cache: false
                     }
-                });
-            });
+    });
+    return Todo;
+}]);
+
+module1.factory('gasPublicServices', ['$resource', function ($resource) {
+    var Todo = $resource('', {}, {
+                   getInfo: {
+                        method: 'JSONP',
+                        url: gasPublicServices,
+                        params: {
+                            callback:'JSON_CALLBACK',
+                            operation: 'getInfo'
+                        },
+                        isArray: false,
+                        cache: false
+                    }
+    });
+    return Todo;
+}]);
+
+/* Services */
+angular.module('myApp.servicess', ['ngResource'],
+        function($provide) {
+            return;
+            var gasPrivateServices = 'https://script.google.com/macros/s/AKfycbw2Q23RjpRHNHYGEcMzWYKhs7LwAHQKYHLzXJhTJRoDsptHNcM/exec';
+            var gasPublicServices = 'https://script.google.com/macros/s/AKfycbw2Q23RjpRHNHYGEcMzWYKhs7LwAHQKYHLzXJhTJRoDsptHNcM/exec';
+
+            /**
+             * swap provider
+             */
             console.info('Register gasPrivateServices ' + gasPrivateServices);
-            $provide.factory('gasPrivateServices', function($resource, $routeParams, $location) {
+            $provide.factory('gasPrivateServices', function($resource, $location) {
                 /**
                  * params injection
                  * @type @exp;$routeParams@pro;swapId
                  */
                 return $resource('', {}, {
-                    gasPrivateServices: {
-                        method: 'JSONP',
-                        url: gasPrivateServices,
-                        params: {
-                            callback:'JSON_CALLBACK'
-                        },
-                        isArray: false,
-                        cache: false
-                    },
-                    getRootFolder: {
-                        method: 'JSONP',
-                        url: gasPrivateServices,
-                        params: {
-                            callback:'JSON_CALLBACK',
-                            operation: 'getRootFolder'
-                        },
-                        isArray: false,
-                        cache: false
-                    },
-                    getChildren: {
-                        method: 'JSONP',
-                        url: gasPrivateServices,
-                        params: {
-                            callback:'JSON_CALLBACK',
-                            operation: 'getChildren'
-                        },
-                        isArray: false,
-                        cache: false
-                    },
-                    getFiles: {
-                        method: 'JSONP',
-                        url: gasPrivateServices,
-                        params: {
-                            callback:'JSON_CALLBACK',
-                            operation: 'getFiles'
-                        },
-                        isArray: false,
-                        cache: false
-                    },
-                    getDocumentAsText: {
-                        method: 'JSONP',
-                        url: gasPrivateServices,
-                        params: {
-                            callback:'JSON_CALLBACK',
-                            operation: 'getDocumentAsText'
-                        },
-                        isArray: false,
-                        cache: false
-                    },
-                    getDocumentAsBlob: {
-                        method: 'JSONP',
-                        url: gasPrivateServices,
-                        params: {
-                            callback:'JSON_CALLBACK',
-                            operation: 'getDocumentAsBlob'
-                        },
-                        isArray: false,
-                        cache: false
-                    },
                     getTemplate: {
                         method: 'JSONPP',
                         url: gasPrivateServices,
@@ -125,20 +78,11 @@ angular.module('myApp.services', ['ngResource'],
                         },
                         isArray: false,
                         cache: false
-                    },
-                    connect: {
-                        url: 'https://www.googleapis.com/auth/plus.login', 
-                        params: {
-                            
-                        }, 
-                        method: 'GET', 
-                        isArray: false, 
-                        cache: false
                     }
                 });
             });
             console.info('Register gasPublicServices ' + gasPublicServices);
-            $provide.factory('gasPublicServices', function($resource, $routeParams, $location) {
+            $provide.factory('gasPublicServices', function($resource, $location) {
                 /**
                  * params injection
                  * @type @exp;$routeParams@pro;swapId
@@ -150,6 +94,16 @@ angular.module('myApp.services', ['ngResource'],
                         params: {
                             callback:'JSON_CALLBACK',
                             operation: 'getTemplate'
+                        },
+                        isArray: false,
+                        cache: false
+                    },
+                    getInfo: {
+                        method: 'JSONP',
+                        url: gasPublicServices,
+                        params: {
+                            callback:'JSON_CALLBACK',
+                            operation: 'getInfo'
                         },
                         isArray: false,
                         cache: false

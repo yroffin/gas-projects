@@ -1,3 +1,19 @@
+/* 
+ * Copyright 2014 Yannick Roffin.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 'use strict';
 
 /* Controllers */
@@ -29,21 +45,23 @@ angular.module('myApp.controllers', [])
           });
     }
   }])
-  .controller('BootstrapCtrl', ['$rootScope','gasPublicServices', function($scope, gasPublicServices) {
+  .controller('BootstrapCtrl', ['$rootScope','$window', 'gasPublicServices', function($scope, $window, gasPublicServices) {
     /**
      * bootstrap
      */
     $scope.load = function() {
         console.log("Template loading ...");
-        gasPublicServices.getTemplate({message: {name:'content'}},
+        gasPublicServices.getInfo({message: {}},
         function(data) {
             console.log(data);
-            $scope.template = data;
-            console.log("Template loaded ...");
+            $scope.auth = data;
+            console.log("getInfo loaded ...");
+        },function(failure) {
+            $window.location.href = failure.config.url;
         });
     }
-  }])
-  .controller('MyCtrl1', ['$rootScope','$http', 'gasPublicServices', function($scope, $http, gasPublicServices) {
+}])
+  .controller('indexCtrl', ['$rootScope','$location', 'gasPublicServices', function($scope, $location, gasPublicServices) {
     /**
      * load swap
      */
@@ -89,7 +107,7 @@ angular.module('myApp.controllers', [])
         });
     }
   }])
-  .controller('MyCtrl2', ['$rootScope', '$http', 'gasPublicServices', function($scope, $http, gasPublicServices) {
+  .controller('MyCtrl2', ['$rootScope', '$location', 'gasPublicServices', function($scope, $location, gasPublicServices) {
     /**
      * load swap
      */
