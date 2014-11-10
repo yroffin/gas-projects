@@ -35,6 +35,16 @@ function ($resource) {
                         isArray: false,
                         cache: false
                     },
+                   findAllGroups: {
+                        method: 'JSONP',
+                        url: gasPublicServices,
+                        params: {
+                            callback:'JSON_CALLBACK',
+                            operation: 'findAllGroups'
+                        },
+                        isArray: true,
+                        cache: false
+                   },
                    getAllInventory: {
                         method: 'JSONP',
                         url: gasPublicServices,
@@ -60,7 +70,17 @@ function ($resource) {
                         },
                         isArray: false,
                         cache: false
-                    },
+                   },
+                   findAllGroups: {
+                        method: 'JSONP',
+                        url: gasPublicServices,
+                        params: {
+                            callback:'JSON_CALLBACK',
+                            operation: 'findAllGroups'
+                        },
+                        isArray: false,
+                        cache: false
+                   },
                    getAllInventory: {
                         method: 'JSONP',
                         url: gasPublicServices,
@@ -70,6 +90,6 @@ function ($resource) {
                         },
                         isArray: true,
                         cache: false
-                    }
+                   }
     })}
 ]);

@@ -44,7 +44,21 @@ angular.module('myApp.controllers', [])
             $scope.inventory = data;
             console.log("getAllInventory loaded ...");
             setTimeout(function(){
-                $("#inventorylist").listview("refresh");
+                $("#inventoryList").listview("refresh");
+            },100);
+        },function(failure) {
+            $window.location.href = failure.config.url;
+        });
+    }
+    $scope.loadGroups = function() {
+        console.log("findAllGroups loading ...");
+        gasPublicServices.findAllGroups({message: {key:'iez'}},
+        function(data) {
+            console.log(data);
+            $scope.groups = data;
+            console.log("findAllGroups loaded ...");
+            setTimeout(function(){
+                $("#groupsList").listview("refresh");
             },100);
         },function(failure) {
             $window.location.href = failure.config.url;
@@ -53,6 +67,14 @@ angular.module('myApp.controllers', [])
     $scope.selectItem = function(item) {
         console.log("selectItem");
         $scope.inventoryItem = item;
+        console.log(item);
+    }
+    $scope.selectGroup = function(item) {
+        console.log("selectGroup");
+        $scope.groupItem = item;
+        setTimeout(function(){
+            $("#groupsDetailList").listview("refresh");
+        },100);
         console.log(item);
     }
 }])

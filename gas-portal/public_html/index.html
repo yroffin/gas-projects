@@ -45,7 +45,7 @@ limitations under the License.
                         <li><a href="#home" id="home" data-transition="flip" data-icon="home">Accueil</a></li>
                         <li><a href="#inventory" id="email" data-transition="flip" data-icon="grid" ng-click="loadInventory()">Inventaire</a></li>
                         <li><a href="#member" id="member" data-transition="flip" data-icon="user">Membres</a></li>
-                        <li><a href="#commission" id="commissions" data-transition="flip" data-icon="tag">Commissions</a></li>
+                        <li><a href="#groups" id="groups" data-transition="flip" data-icon="tag" ng-click="loadGroups()">Groupes</a></li>
                     </ul>
                 </div>
             </div>
@@ -58,7 +58,7 @@ limitations under the License.
             </div>
             <div role="main" class="ui-content">
                 <div>
-                    <ul data-role="listview" id="inventorylist">
+                    <ul data-role="listview" id="inventoryList">
                         <li ng-repeat="item in inventory"><a href="#inventory-detail" ng-click="selectItem(item)">{{item.name}}</a></li>
                     </ul>
                 </div>
@@ -90,13 +90,16 @@ limitations under the License.
             </div>
         </div>
 
-        <!-- Commission page -->
-        <div data-role="page" id="commission" data-theme="{{theme}}">
+        <!-- Groups page -->
+        <div data-role="page" id="groups" data-theme="{{theme}}">
             <div data-role="header">
-                <h1>Commissions</h1>
+                <h1>Groupes</h1>
             </div>
             <div role="main" class="ui-content">
                 <div>
+                    <ul data-role="listview" id="groupsList">
+                        <li ng-repeat="item in groups"><a href="#groups-detail" ng-click="selectGroup(item)">{{item.email}} ({{item.count}} personne(s))</a></li>
+                    </ul>
                 </div>
             </div>
             <div data-role=footer">
@@ -130,6 +133,28 @@ limitations under the License.
                     <ul>
                         <li><a href="#home" id="home" data-transition="flip" data-icon="home">Accueil</a></li>
                         <li><a href="#inventory" id="email" data-transition="flip" data-icon="grid" ng-click="loadInventory()">Inventaire</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Groups detail page -->
+        <div data-role="page" id="groups-detail" data-theme="{{theme}}">
+            <div data-role="header">
+                <h1>Groupe {{groupItem.email}}</h1>
+            </div>
+            <div role="main" class="ui-content">
+                <div>
+                    <ul data-role="listview" id="groupsDetailList">
+                        <li ng-repeat="user in groupItem.users">{{user.email}}</li>
+                    </ul>
+                </div>
+            </div>
+            <div data-role=footer">
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="#home" id="home" data-transition="flip" data-icon="home">Accueil</a></li>
+                        <li><a href="#groups" id="groups" data-transition="flip" data-icon="tag" ng-click="loadGroups()">Groupes</a></li>
                     </ul>
                 </div>
             </div>
