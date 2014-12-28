@@ -1,0 +1,131 @@
+<!doctype html>
+<!--
+Copyright 2014 Ille et zick.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+
+<html lang="en" ng-app="illeEtZick">
+    <head>
+        <title>Ille et zick</title>
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jquerymobile/1.4.3/jquery.mobile.min.css" />
+        <link rel="stylesheet" href="css/app.css" />
+        <script src="config.js"></script>
+    </head>
+    <body ng-controller="BootstrapCtrl" ng-init="load()">
+
+        <!-- static header -->
+        <div data-role="header" data-theme="{{theme}}">
+            <h2 class="ui-title" role="heading">
+                <a href="#page-01" title="Ille et zick" class="ui-link">
+                    <img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xfp1/v/t1.0-1/c1.108.676.676/s160x160/1002670_584298191680362_7591874181102995640_n.jpg?oh=8ebd826deeb5690d8a3bcb2977d07db1&oe=5532DB45&__gda__=1430287041_7cd59913d4a4aa5c5ca79e774e890cc7" alt="jQuery Mobile">
+                </a>
+            </h2>
+            <div data-role="navbar" data-grid="c">
+                <ul>
+                    <li><a href="#programmation" id="home" data-icon="home" ng-click="redirect('http://www.vieillescharrues.asso.fr/2014/programmation')">Programmation</a></li>
+                    <li><a href="#billetterie" id="email" data-icon="grid" ng-click="redirect('http://www.vieillescharrues.asso.fr/2014/billetterie')">Billetterie</a></li>
+                    <li><a href="#pratique" id="email1" data-icon="grid" ng-click="redirect('http://www.vieillescharrues.asso.fr/2014/infos-pratiques')">Pratique</a></li>
+                    <li><a href="#asso" id="email2" data-icon="grid" ng-click="redirect('http://www.vieillescharrues.asso.fr/asso')">L'asso</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- static footer -->
+        <div data-role="footer" data-theme="{{theme}}">
+            <div data-role="navbar" data-grid="d">
+                <ul>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li><a href="#laboutique" id="member" data-icon="user" ng-click="redirect('http://www.vieillescharrues.asso.fr/asso/boutique')">La boutique</a></li>
+                    <li><a href="#labels" id="groups" data-icon="tag" ng-click="redirect('http://www.vieillescharrues.asso.fr/asso/projet/label-charrues')">Label Ille et Zick</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main page -->
+        <div data-role="page" id="page-01" data-theme="{{theme}}">
+            <div role="main" class="ui-content" id="img01">
+                <div>
+                <div data-role="controlgroup" class="control ui-btn-left ui-controlgroup ui-controlgroup-horizontal ui-corner-all ui-mini" data-type="horizontal" data-mini="true">
+                    <div class="ui-controlgroup-controls ">
+                        <a href="#page-04" class="prev ui-btn ui-btn-icon-notext ui-icon-carat-l ui-first-child">Previous</a>
+                        <a href="#page-02" class="next ui-btn ui-btn-icon-notext ui-icon-carat-r ui-last-child">Next</a>
+                    </div>
+                </div>
+                </div>
+            </div><!-- /content -->
+        </div><!-- /page -->
+
+        <!-- Main page -->
+        <div data-role="page" id="page-02" data-theme="{{theme}}">
+            <div role="main" class="ui-content">
+                <div id="img02">
+                <div data-role="controlgroup" class="control ui-btn-left ui-controlgroup ui-controlgroup-horizontal ui-corner-all ui-mini" data-type="horizontal" data-mini="true">
+                    <div class="ui-controlgroup-controls ">
+                        <a href="#page-01" class="prev ui-btn ui-btn-icon-notext ui-icon-carat-l ui-first-child">Previous</a>
+                        <a href="#page-03" class="next ui-btn ui-btn-icon-notext ui-icon-carat-r ui-last-child">Next</a>
+                    </div>
+                </div>
+                </div>
+            </div><!-- /content -->
+        </div><!-- /page -->
+
+        <!-- Main page -->
+        <div data-role="page" id="page-03" data-theme="{{theme}}">
+            <div role="main" class="ui-content">
+                <div id="img03">
+                <div data-role="controlgroup" class="control ui-btn-left ui-controlgroup ui-controlgroup-horizontal ui-corner-all ui-mini" data-type="horizontal" data-mini="true">
+                    <div class="ui-controlgroup-controls ">
+                        <a href="#page-02" class="prev ui-btn ui-btn-icon-notext ui-icon-carat-l ui-first-child">Previous</a>
+                        <a href="#page-04" class="next ui-btn ui-btn-icon-notext ui-icon-carat-r ui-last-child">Next</a>
+                    </div>
+                </div>
+                </div>
+            </div><!-- /content -->
+        </div><!-- /page -->
+
+        <!-- Main page -->
+        <div data-role="page" id="page-04" data-theme="{{theme}}">
+            <div role="main" class="ui-content">
+                <div id="img04">
+                <div data-role="controlgroup" class="control ui-btn-left ui-controlgroup ui-controlgroup-horizontal ui-corner-all ui-mini" data-type="horizontal" data-mini="true">
+                    <div class="ui-controlgroup-controls ">
+                        <a href="#page-03" class="prev ui-btn ui-btn-icon-notext ui-icon-carat-l ui-first-child">Previous</a>
+                        <a href="#page-01" class="next ui-btn ui-btn-icon-notext ui-icon-carat-r ui-last-child">Next</a>
+                    </div>
+                </div>
+                </div>
+            </div><!-- /content -->
+        </div><!-- /page -->
+
+        <!-- JQuery -->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquerymobile/1.4.3/jquery.mobile.min.js"></script>
+        <!-- AngularJS -->
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular-resource.min.js"></script>
+
+        <!-- Application -->
+        <script src="js/app.js"></script>
+        <script src="js/services.js"></script>
+        <script src="js/controllers.js"></script>
+        <script src="js/filters.js"></script>
+        <script src="js/directives.js"></script>
+    </body>
+</html>

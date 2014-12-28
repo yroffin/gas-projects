@@ -1,0 +1,54 @@
+/* 
+ * Copyright 2014 Ille et zick.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+.ui-bar-b, .ui-page-theme-b .ui-bar-inherit, html .ui-bar-b .ui-bar-inherit, html .ui-body-b .ui-bar-inherit, html body .ui-group-theme-b .ui-bar-inherit {
+    background-color: #000000;
+    border-color: #000000;
+}
+
+#logo {
+    background-image: url('https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xfp1/v/t1.0-1/c1.108.676.676/s160x160/1002670_584298191680362_7591874181102995640_n.jpg?oh=8ebd826deeb5690d8a3bcb2977d07db1&oe=5532DB45&__gda__=1430287041_7cd59913d4a4aa5c5ca79e774e890cc7');
+    background-position: top left;
+    background-repeat: no-repeat;
+}
+
+#page-01 {
+    background-image: url('http://france3-regions.francetvinfo.fr/bretagne/sites/regions_france3/files/styles/top_big/public/assets/images/2013/07/21/foulevc.jpg?itok=tM4rmilN');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+#page-02 {
+    background-image: url('http://wallpapers55.com/wp-content/uploads/2013/10/Air-Balloon-Festival-1024x768.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+#page-03 {
+    background-image: url('http://www.miragefestival.com/2013/artistes-images/mirage-festival-performances-1024-architecture.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+#page-04 {
+    background-image: url('http://img.over-blog.com/598x417/2/05/12/22/In-Situ-Art-Festival/1966930_751636901554013_1341564275028706707_n.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
