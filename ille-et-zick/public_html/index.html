@@ -27,14 +27,8 @@ limitations under the License.
         <script src="config.js"></script>
     </head>
     <body ng-controller="BootstrapCtrl" ng-init="load()">
-
         <!-- static header -->
         <div data-role="header" data-theme="{{theme}}">
-            <h2 class="ui-title" role="heading">
-                <a href="#page-01" title="Ille et zick" class="ui-link">
-                    <img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xfp1/v/t1.0-1/c1.108.676.676/s160x160/1002670_584298191680362_7591874181102995640_n.jpg?oh=8ebd826deeb5690d8a3bcb2977d07db1&oe=5532DB45&__gda__=1430287041_7cd59913d4a4aa5c5ca79e774e890cc7" alt="jQuery Mobile">
-                </a>
-            </h2>
             <div data-role="navbar" data-grid="c">
                 <ul>
                     <li><a href="#programmation" id="home" data-icon="home" ng-click="redirect('http://www.vieillescharrues.asso.fr/2014/programmation')">Programmation</a></li>
@@ -46,26 +40,31 @@ limitations under the License.
         </div>
 
         <!-- static footer -->
-        <div data-role="footer" data-theme="{{theme}}">
-            <div data-role="navbar" data-grid="d">
+        <div data-role="footer" data-theme="{{theme}}" data-position="fixed" data-fullscreen="true" data-tap-toggle="true" role="banner" class="ui-footer ui-footer-fullscreen ui-footer-fixed" style="opacity: 1;">
+            <div data-role="navbar" data-grid="c">
                 <ul>
-                    <li></li>
-                    <li></li>
-                    <li></li>
                     <li><a href="#laboutique" id="member" data-icon="user" ng-click="redirect('http://www.vieillescharrues.asso.fr/asso/boutique')">La boutique</a></li>
+                    <li><a href="#labels" id="groups" data-icon="tag" ng-click="redirect('http://www.vieillescharrues.asso.fr/asso/projet/label-charrues')">Label Ille et Zick</a></li>
+                    <li><a href="#labels" id="groups" data-icon="tag" ng-click="redirect('http://www.vieillescharrues.asso.fr/asso/projet/label-charrues')">Label Ille et Zick</a></li>
                     <li><a href="#labels" id="groups" data-icon="tag" ng-click="redirect('http://www.vieillescharrues.asso.fr/asso/projet/label-charrues')">Label Ille et Zick</a></li>
                 </ul>
             </div>
+            <h2 class="ui-title" role="heading">
+                <a href="#page-01" title="Ille et zick" class="ui-link">
+                    <img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xfp1/v/t1.0-1/c1.108.676.676/s160x160/1002670_584298191680362_7591874181102995640_n.jpg?oh=8ebd826deeb5690d8a3bcb2977d07db1&oe=5532DB45&__gda__=1430287041_7cd59913d4a4aa5c5ca79e774e890cc7" alt="jQuery Mobile">
+                </a>
+            </h2>
         </div>
 
+        
         <!-- Main page -->
-        <div data-role="page" id="page-01" data-theme="{{theme}}">
-            <div role="main" class="ui-content" id="img01">
+        <div data-role="page" id="page-01" data-theme="{{theme}}" class="full-layer-page">
+            <div role="main" class="ui-content">
                 <div>
                 <div data-role="controlgroup" class="control ui-btn-left ui-controlgroup ui-controlgroup-horizontal ui-corner-all ui-mini" data-type="horizontal" data-mini="true">
                     <div class="ui-controlgroup-controls ">
-                        <a href="#page-04" class="prev ui-btn ui-btn-icon-notext ui-icon-carat-l ui-first-child">Previous</a>
-                        <a href="#page-02" class="next ui-btn ui-btn-icon-notext ui-icon-carat-r ui-last-child">Next</a>
+                        <a href="#page-04" data-transition="slidefade" class="prev ui-btn ui-btn-icon-notext ui-icon-carat-l ui-first-child">Previous</a>
+                        <a href="#page-02" data-transition="slidefade" class="next ui-btn ui-btn-icon-notext ui-icon-carat-r ui-last-child">Next</a>
                     </div>
                 </div>
                 </div>
@@ -73,13 +72,13 @@ limitations under the License.
         </div><!-- /page -->
 
         <!-- Main page -->
-        <div data-role="page" id="page-02" data-theme="{{theme}}">
+        <div data-role="page" id="page-02" data-theme="{{theme}}" class="full-layer-page">
             <div role="main" class="ui-content">
                 <div id="img02">
                 <div data-role="controlgroup" class="control ui-btn-left ui-controlgroup ui-controlgroup-horizontal ui-corner-all ui-mini" data-type="horizontal" data-mini="true">
                     <div class="ui-controlgroup-controls ">
-                        <a href="#page-01" class="prev ui-btn ui-btn-icon-notext ui-icon-carat-l ui-first-child">Previous</a>
-                        <a href="#page-03" class="next ui-btn ui-btn-icon-notext ui-icon-carat-r ui-last-child">Next</a>
+                        <a href="#page-01" data-transition="slidefade" class="prev ui-btn ui-btn-icon-notext ui-icon-carat-l ui-first-child">Previous</a>
+                        <a href="#page-03" data-transition="slidefade" class="next ui-btn ui-btn-icon-notext ui-icon-carat-r ui-last-child">Next</a>
                     </div>
                 </div>
                 </div>
@@ -87,13 +86,13 @@ limitations under the License.
         </div><!-- /page -->
 
         <!-- Main page -->
-        <div data-role="page" id="page-03" data-theme="{{theme}}">
+        <div data-role="page" id="page-03" data-theme="{{theme}}" class="full-layer-page">
             <div role="main" class="ui-content">
                 <div id="img03">
                 <div data-role="controlgroup" class="control ui-btn-left ui-controlgroup ui-controlgroup-horizontal ui-corner-all ui-mini" data-type="horizontal" data-mini="true">
                     <div class="ui-controlgroup-controls ">
-                        <a href="#page-02" class="prev ui-btn ui-btn-icon-notext ui-icon-carat-l ui-first-child">Previous</a>
-                        <a href="#page-04" class="next ui-btn ui-btn-icon-notext ui-icon-carat-r ui-last-child">Next</a>
+                        <a href="#page-02" data-transition="slidefade" class="prev ui-btn ui-btn-icon-notext ui-icon-carat-l ui-first-child">Previous</a>
+                        <a href="#page-04" data-transition="slidefade" class="next ui-btn ui-btn-icon-notext ui-icon-carat-r ui-last-child">Next</a>
                     </div>
                 </div>
                 </div>
@@ -101,13 +100,13 @@ limitations under the License.
         </div><!-- /page -->
 
         <!-- Main page -->
-        <div data-role="page" id="page-04" data-theme="{{theme}}">
+        <div data-role="page" id="page-04" data-theme="{{theme}}" class="full-layer-page">
             <div role="main" class="ui-content">
                 <div id="img04">
                 <div data-role="controlgroup" class="control ui-btn-left ui-controlgroup ui-controlgroup-horizontal ui-corner-all ui-mini" data-type="horizontal" data-mini="true">
                     <div class="ui-controlgroup-controls ">
-                        <a href="#page-03" class="prev ui-btn ui-btn-icon-notext ui-icon-carat-l ui-first-child">Previous</a>
-                        <a href="#page-01" class="next ui-btn ui-btn-icon-notext ui-icon-carat-r ui-last-child">Next</a>
+                        <a href="#page-03" data-transition="slidefade" class="prev ui-btn ui-btn-icon-notext ui-icon-carat-l ui-first-child">Previous</a>
+                        <a href="#page-01" data-transition="slidefade" class="next ui-btn ui-btn-icon-notext ui-icon-carat-r ui-last-child">Next</a>
                     </div>
                 </div>
                 </div>
